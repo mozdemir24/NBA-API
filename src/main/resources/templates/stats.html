@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+</head>
+<body>
+
+<h1>NBA Stats</h1>
+
+<h3 th:if="${stats.empty}">No Result Found!</h3>
+<table border="2">
+    <thead>
+    <tr>
+        <th>Home</th>
+        <th>Visitor</th>
+        <th>Double Double Players</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stat : ${stats}">
+        <td><span th:text="${stat.homeTeamName}"></span></td>
+        <td><span th:text="${stat.visitorTeamName}"></span></td>
+        <td>
+            <div th:each="ddPlayer : ${stat.ddPlayers}">
+                <span th:text="${ddPlayer.firstName}"></span> <span th:text="${ddPlayer.lastName}"></span> (<span th:text="${ddPlayer.teamAbbreviation}"></span>)
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/}">Search Again</a>
+
+</body>
+</html>

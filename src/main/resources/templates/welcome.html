@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>NBA Stats</title>
+</head>
+
+<body>
+<div>
+    <h1>NBA Stats</h1>
+</div>
+
+<h3>Please pick a date in 2017-2018 NBA season!</h3>
+
+<form action="#" th:action="@{/getStats}" th:object="${request}" method="post">
+    <input type="date" th:field="*{date}" min="2017-10-17" max="2018-06-08" placeholder="yyyy-mm-dd"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
